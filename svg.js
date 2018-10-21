@@ -10,7 +10,7 @@ function header(width, height) {
 
   return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" version="1.1">\n` +
          `<defs><clipPath id="${id}"><rect x="0" y="0" width="${width}" height="${height}" /></clipPath></defs>\n` +
-         `<g clip-path="url(#${id})">\n`;
+         `<g clip-path="url(#${id})">`;
 }
 
 function footer() {
