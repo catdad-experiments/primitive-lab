@@ -19,5 +19,8 @@
   "homepage": "https://github.com/catdad-experiments/primitive-lab#readme",
   "engines": {
     "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "primitive": "^1.0.1"
   }
 }
