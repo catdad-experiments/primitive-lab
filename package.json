@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/catdad-experiments/primitive-lab/issues"
   },
-  "homepage": "https://github.com/catdad-experiments/primitive-lab#readme"
+  "homepage": "https://github.com/catdad-experiments/primitive-lab#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  }
 }
