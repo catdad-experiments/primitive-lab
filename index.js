@@ -1,25 +1,35 @@
+#!/usr/bin/env node
 /* jshint node: true, esversion: 6 */
 
+// TODO log issues:
+// * add clipPath
+// * use viewBox, remove width and height
+
 const { promisify } = require('util');
+const path = require('path');
 const fs = require('fs');
 
 const primitive = require('primitive');
+const { steps, input } = require('minimist')(process.argv.slice(2));
 
 const svg = require('./svg.js');
 
-const root = 'D:\\Workspace\\Photography\\primitive';
-const steps = 3;
+const root = path.resolve('.');
 
-const input = root + '\\wire-dove.jpg';
-const output = root + `\\api-dove-${steps}.svg`;
+const inpath = path.resolve(root, input);
+const { name, ext, dir } = path.parse(inpath);
+const outpath = path.resolve(dir, `${name}-${steps}.svg`);
+
+console.log(inpath, '-->', outpath);
 
 primitive({
-  input,
-  numSteps: steps
+  input: inpath,
+  numSteps: Number(steps)
 }).then((output) => {
-  return svg(output);
+  console.log('final score:', `${(output.score * 100).toFixed(3)}%`);
+  return output.toSVG();
 }).then((svg) => {
-  return promisify(fs.writeFile)(output, svg);
+  return promisify(fs.writeFile)(outpath, svg);
 }).then(() => {
   console.log('done?');
 }).catch(err => {
