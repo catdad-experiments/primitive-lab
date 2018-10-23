@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "primitive-lab",
   "main": "index.js",
+  "bin": {
+    "lab": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
