@@ -21,6 +21,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
+    "minimist": "^1.2.0",
     "primitive": "^1.0.1"
   }
 }
